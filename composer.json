@@ -1,0 +1,33 @@
+{
+    "name": "ialtoobi/thawani",
+    "description": "A Laravel package for integrating Thawani payment gateway.",
+    "type": "library",
+    "keywords": ["thawani", "payment gateway", "laravel"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mohammed Al Toubi",
+            "email": "altoobi9@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.3|^8.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ialtoobi\\Thawani\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Ialtoobi\\Thawani\\ThawaniServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
