@@ -1,106 +1,68 @@
-# Schemator for Laravel
+## Thawani-Manager
 
-Schemator is a Laravel package designed to automate the process of generating Eloquent models and Filament resources based on your database schema. It simplifies the initial setup of models in Laravel projects by auto-generating them with properties and relationships.
+A Laravel package for integrating Thawani payment gateway.
 
-## Features
+## How to install
+You can use composer:
 
-- Automatically generates Eloquent models for each database table.
-- Supports a wide array of relationships including `belongsTo`, `hasMany`, `hasOne`, `belongsToMany`, `morphOne`, and `morphMany`.
-- Generates Filament resources if Filament is installed, with support for various options like `--simple`, `--generate`, `--soft-deletes`, and `--view`.
-- Embeds a comment in each model indicating creation by Schemator for clarity and tracking.
+```composer require Ialtoobi/Thawani-Manager```
 
-## Requirements
+or clone the class using GIT:
 
-- Laravel 8 or newer
-- PHP 7.3 or newer
-- FilamentPHP (optional for resource generation)
+    git clone https://github.com/ialtoobi/Thawani-Manager.git
+or Download the archive by [clicking here](https://github.com/ialtoobi/Thawani-Manager/archive/master.zip).
 
-## Installation
+## Usage
+### In .env file Initialize these configuration to specify environment (Testing || Production):
+```php
 
-To install Schemator, run the following command in your Laravel project:
-
-```bash
-composer require 0jkb/Schemator
-```
-
-After installation, you can use the Artisan command provided by Schemator.
-
-## Usage :
+# Thawani Pay Configuration for Testing Environment
+THAWANI_TEST_BASE_URL=https://uatcheckout.thawani.om/api/v1
+THAWANI_CHECKOUT_TEST_URL=https://uatcheckout.thawani.om/pay
+THAWANI_TEST_SECRET_KEY=rRQ26GcsZzoEhbrP2HZvLYDbn9C9et
+THAWANI_TEST_PUBLISHABLE_KEY=HGvTMLDssJghr9tlN9gr4DVYt0qyBy
 
 
-- -f | --filament-options: Activate Filament resource generation with specific options. Accepts both shorthand (g, s, d, v, e) and full words (generate, simple, soft-deletes, view, empty). For example, -f gs or -f generate,simple.
-- --skip= for specifying tables to skip.
-- --skip-default as a flag to skip Laravel's default tables.
-- --only= to generate models for specific tables.
-
-Generate models only :
-```bash
-php artisan vendor:publish --tag=config
-```
-
-
-To generate models and empty Filament resources, run (e | empty option):
-```bash
-php artisan schemator:generate -f e
+# Thawani Pay Configuration for Production Environment
+THAWANI_LIVE_BASE_URL=https://checkout.thawani.om/api/v1
+THAWANI_CHECKOUT_PROD_URL=https://checkout.thawani.om/pay
+THAWANI_LIVE_SECRET_KEY=your_live_secret_key
+THAWANI_LIVE_PUBLISHABLE_KEY=your_live_publishable_key
 
 ```
-- This will create several files in the app/Filament/Resources directory with empty form and table .
-
-
-To generate models and optionally Filament resources, run:
-```bash
-php artisan schemator:generate -f [options]
-
+### In config/services.php :
+```php
+'thawani' => [
+    'test' => [
+        'base_url' => env('THAWANI_TEST_BASE_URL'),
+        'checkout_base_url' => env('THAWANI_CHECKOUT_TEST_URL'),
+        'secret_key' => env('THAWANI_TEST_SECRET_KEY'),
+        'publishable_key' => env('THAWANI_TEST_PUBLISHABLE_KEY'),
+    ],
+    'live' => [
+        'base_url' => env('THAWANI_LIVE_BASE_URL'),
+        'checkout_base_url' => env('THAWANI_CHECKOUT_PROD_URL'),
+        'secret_key' => env('THAWANI_LIVE_SECRET_KEY'),
+        'publishable_key' => env('THAWANI_LIVE_PUBLISHABLE_KEY'),
+    ],
+],
 ```
-Generate Filament resources (s | simple option):
-```bash
-php artisan schemator:generate -f s
-```
- - This command will generate Filament resources for each table, applying the simple option.
+## Basic Usage
 
 
-Generate Filament resources (g | generate option):
+### Use ThawaniManager class :
+```php
+    use Ialtoobi\Thawani\ThawaniManager;
 
-```bash
-php artisan schemator:generate -f g
+    $thawaniManager = new ThawaniManager();
 ```
 
-Generate models and Filament resources with all options:
-
-```bash
-php artisan schemator:generate -f sgdv
+### Create Checkout Session To Generate Payment URL:
+```php
 
 ```
 
-Skipping specific tables(--skip option):
-```bash
-php artisan schemator:generate -f sgdv --skip=users,logs
+### Check Payment Status:
+```php
+
 ```
-
-Generating models for specific tables(--only option):
-```bash
-php artisan schemator:generate -f sgdv --only=users,posts
-```
- - This command will generate models only for the 'users' and 'posts' tables.
-
-Generate models and Filament resources, skipping Laravel default tables (--skip-default option):
-```bash
-php artisan schemator:generate -f sgdv --skip-default
-```
-
-
-
-
-
-## Contributing
-Contributions to Schemator are welcome. You can contribute in various ways:
-
-- Submitting bug reports and feature requests.
-- Writing code for new features or bug fixes.
-- Improving documentation.
-
-Please feel free to fork the repository and submit pull requests.
-
-## License
-Schemator is open-sourced software licensed under the MIT license.
-
