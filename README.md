@@ -31,8 +31,6 @@ THAWANI_LIVE_PUBLISHABLE_KEY=your_live_publishable_key
 
 ```
 
-
-
 ### Use ThawaniManager class :
 ```php
     use Ialtoobi\Thawani\ThawaniManager;
