@@ -24,11 +24,6 @@ THAWANI_LIVE_SECRET_KEY=your_live_secret_key
 THAWANI_LIVE_PUBLISHABLE_KEY=your_live_publishable_key
 
 ```
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 4e11703 (Update read me file)
 
 ### Use ThawaniManager class :
 ```php
