@@ -16,20 +16,19 @@ or Download the archive by [clicking here](https://github.com/ialtoobi/Thawani-M
 ### In .env file Initialize these configuration to specify environment (Testing || Production):
 ```php
 
-# Thawani Pay Configuration for Testing Environment
-THAWANI_TEST_BASE_URL=https://uatcheckout.thawani.om/api/v1
-THAWANI_CHECKOUT_TEST_URL=https://uatcheckout.thawani.om/pay
-THAWANI_TEST_SECRET_KEY=rRQ26GcsZzoEhbrP2HZvLYDbn9C9et
-THAWANI_TEST_PUBLISHABLE_KEY=HGvTMLDssJghr9tlN9gr4DVYt0qyBy
-
+#Change mode based on environment 'test' || 'live' for production.
+THAWANI_MODE=test
 
 # Thawani Pay Configuration for Production Environment
-THAWANI_LIVE_BASE_URL=https://checkout.thawani.om/api/v1
-THAWANI_CHECKOUT_PROD_URL=https://checkout.thawani.om/pay
 THAWANI_LIVE_SECRET_KEY=your_live_secret_key
 THAWANI_LIVE_PUBLISHABLE_KEY=your_live_publishable_key
 
 ```
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 4e11703 (Update read me file)
 
 ### Use ThawaniManager class :
 ```php
