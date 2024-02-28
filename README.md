@@ -40,9 +40,7 @@ To configure your application to work with Thawani Pay, you need to set the foll
 
 ```php
 THAWANI_MODE=test
-
 THAWANI_LIVE_SECRET_KEY=your_live_secret_key
-
 THAWANI_LIVE_PUBLISHABLE_KEY=your_live_publishable_key
 ```
 
@@ -144,7 +142,7 @@ $description = $delete_customer_result['description'];
 
 ### Handling Payments:
 
-To get list of saved payment methods related to customer using `customer_id`:
+To get list of saved payment methods related to customer use `customer_id`:
 ```php
 $customer_id = 'your_customer_id_here';
 
