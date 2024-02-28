@@ -14,7 +14,7 @@ Thawani Manager is a Laravel package designed to simplify interactions with the 
 Use Composer to add the package to your Laravel project:
 
 ``` bash 
-composer require Ialtoobi/Thawani-Manager
+composer require ialtoobi/thawani
 ```
 
 or clone the package using GIT:
