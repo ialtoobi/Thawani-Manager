@@ -44,7 +44,7 @@ THAWANI_LIVE_SECRET_KEY=your_live_secret_key
 THAWANI_LIVE_PUBLISHABLE_KEY=your_live_publishable_key
 ```
 
-## Basic Usage
+## Usage
 ### Creating a Checkout Session To Generate Payment URL
 To create a new checkout session and redirect the user to the Thawani payment page:
 
@@ -109,7 +109,7 @@ if ($payment_status === 'paid') {
 
 Create a customer to save card for later payment:
 
-Make sure you provide created `customer_id` it in create checkout session.
+Make sure you provide created `customer_id` in create checkout session.
 ```php
 // Use a unique string to reference your customer 
 $customer_data = [
